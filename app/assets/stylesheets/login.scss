@@ -1,0 +1,12 @@
+.login-form {
+  fieldset {
+    width: 260px;
+  }
+
+  input[type=text],
+  input[type=password],
+  label {
+    display: inline-block;
+    margin: 8px 0;
+  }
+}
