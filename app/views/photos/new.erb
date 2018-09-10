@@ -1,0 +1,13 @@
+<h1>写真アップロード</h1>
+
+<%= form_for @photo, url: {action: "create"} do |f| %>
+  <div>
+    <%= f.label :title ,  "タイトル" %>
+    <%= f.text_field :title%>
+  <div>
+  <div>
+    <%= f.label :image, "画像ファイル"  %>
+    <%= f.file_field :image %>
+  <div>
+  <%= f.submit "アップロード" %>
+<% end %>

@@ -6,4 +6,12 @@ class PhotosController < ApplicationController
       redirect_to login_path
     end
   end
+
+  def new
+    if current_user
+      @photo = Photo.new
+    else
+      redirect_to login_path
+    end
+  end
 end
