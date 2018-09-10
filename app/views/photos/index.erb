@@ -1,5 +1,7 @@
 <h1>写真一覧</h1>
 
+<%= link_to '写真を追加する', new_photo_path %>
+
 <ul class="photo-list">
   <% @photos.each do |photo| %>
     <li>
