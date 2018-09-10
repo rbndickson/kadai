@@ -1,5 +1,5 @@
 <header class="site-header">
   <% if user_logged_in? %>
-    <%= link_to "ログアウト", "#" %>
+    <%= link_to "ログアウト", logout_path, method: 'POST' %>
   <% end %>
 </header>
