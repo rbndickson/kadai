@@ -1,7 +1,14 @@
 <h1>写真一覧</h1>
 
-<ul>
+<ul class="photo-list">
   <% @photos.each do |photo| %>
-    <li><%= photo.title %></li>
+    <li>
+      <figure>
+        <figcaption>
+          <%= photo.title %>
+        </figcaption>
+        <%= image_tag url_for(photo.image), height: "160", alt: photo.title %>
+      </figure>
+    </li>
   <% end %>
 </ul>
