@@ -4,8 +4,8 @@ class SessionsController < ApplicationController
 
   def create
     if params[:username].blank? || params[:password].blank?
-      flash.now[:missing_username] = "ユーザーIDが未入力" if params[:username].blank?
-      flash.now[:missing_password] = "パスワードが未入力" if params[:password].blank?
+      flash.now[:missing_username] = "ユーザーIDを入力してください" if params[:username].blank?
+      flash.now[:missing_password] = "パスワードを入力してください" if params[:password].blank?
 
       render :new
     else
@@ -16,7 +16,7 @@ class SessionsController < ApplicationController
 
         redirect_to photos_path
       else
-        flash.now[:error] = "ユーザーIDとパスワードが一致するユーザーが存在しない"
+        flash.now[:error] = "入力されたユーザー名やパスワードが正しくありません。確認してからやりなおしてください。"
 
         render :new
       end
