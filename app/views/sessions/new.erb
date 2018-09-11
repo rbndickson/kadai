@@ -10,16 +10,16 @@
   </ul>
 <% end %>
 
-<%= form_tag("/login", method: "POST", class: "login-form") do %>
-  <fieldset>
-    <div>
-      <%= label_tag(:username, "ユーザーID") %>
-      <%= text_field_tag(:username) %>
-    </div>
-    <div>
-      <%= label_tag(:password, "パスワード") %>
-      <%= password_field_tag(:password) %>
-    </div>
+<%= form_tag("/login", method: "POST", class: "form") do %>
+  <div>
+    <%= label_tag(:username, "ユーザーID") %>
+    <%= text_field_tag(:username) %>
+  </div>
+  <div>
+    <%= label_tag(:password, "パスワード") %>
+    <%= password_field_tag(:password) %>
+  </div>
+  <div>
     <%= submit_tag("ログインする") %>
-  </fieldset>
+  </div>
 <% end %>

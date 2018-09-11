@@ -10,15 +10,17 @@
   </ul>
 <% end %>
 
-<%= form_for @photo, url: {action: "create"} do |f| %>
+<%= form_for @photo, url: {action: "create"}, html: {class: "form"} do |f| %>
   <div>
     <%= f.label :title ,  "タイトル" %>
     <%= f.text_field :title%>
-  <div>
+  </div>
   <div>
     <%= f.label :image, "画像ファイル"  %>
     <%= f.file_field :image %>
+  </div>
   <div>
-  <%= f.submit "アップロード" %>
-  <%= link_to 'キャンセル', photos_path %>
+    <%= f.submit "アップロード" %>
+    <%= link_to 'キャンセル', photos_path %>
+  </div>
 <% end %>
