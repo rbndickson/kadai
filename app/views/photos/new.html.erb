@@ -1,14 +1,6 @@
 <h1>写真アップロード</h1>
 
-<% if flash %>
-  <ul>
-    <% flash.each do |name, message| %>
-      <li class="error-message">
-        <%= message %>
-      </li>
-    <% end %>
-  </ul>
-<% end %>
+<%= render 'shared/flash_messages' %>
 
 <%= form_for @photo, url: {action: "create"}, html: {class: "form"} do |f| %>
   <div>
