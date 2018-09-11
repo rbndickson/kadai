@@ -2,9 +2,11 @@
   li {
     display: inline-block;
     list-style-type: none;
+    text-align: center;
   }
 
-  figcaption {
-    text-align: center;
+  figcaption,
+  input {
+    margin: 5px 0;
   }
 }

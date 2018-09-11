@@ -12,6 +12,7 @@
           <%= photo.title %>
         </figcaption>
         <%= image_tag url_for(photo.image), height: "160", alt: photo.title %>
+        <%= button_to 'Tweet', photos_tweet_path(photo_id: photo.id) %>
       </figure>
     </li>
   <% end %>

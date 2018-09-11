@@ -43,6 +43,13 @@ class PhotosController < ApplicationController
     end
   end
 
+  def tweet
+    photo = Photo.find(params[:photo_id])
+    MyTweet.tweet(session[:access_token], photo.title, url_for(photo.image))
+
+    redirect_to photos_path
+  end
+
   private
 
   def photo_params
