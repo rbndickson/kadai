@@ -1,18 +1,12 @@
 class PhotosController < ApplicationController
+  before_action :require_user, only: [:index, :new]
+
   def index
-    if current_user
-      @photos = current_user.photos.order(created_at: :desc)
-    else
-      redirect_to login_path
-    end
+    @photos = current_user.photos.order(created_at: :desc)
   end
 
   def new
-    if current_user
-      @photo = Photo.new
-    else
-      redirect_to login_path
-    end
+    @photo = Photo.new
   end
 
   def create
@@ -54,5 +48,9 @@ class PhotosController < ApplicationController
 
   def photo_params
     params.require(:photo).permit(:title, :image)
+  end
+
+  def require_user
+    redirect_to login_path unless current_user
   end
 end
