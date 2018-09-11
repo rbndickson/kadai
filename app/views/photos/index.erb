@@ -1,6 +1,8 @@
 <h1>写真一覧</h1>
 
-<%= link_to '写真を追加する', new_photo_path %>
+<p><%= link_to 'MyTweet Appと連携する', MyTweet.code_request_url %></p>
+
+<p><%= link_to '写真を追加する', new_photo_path %></p>
 
 <ul class="photo-list">
   <% @photos.each do |photo| %>
