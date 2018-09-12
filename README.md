@@ -1,24 +1,51 @@
-# README
+# 課題
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+写真管理のRuby on Railsアプリケーションです。
 
-Things you may want to cover:
+## Requirements
 
-* Ruby version
+- Ruby: 2.4.4以上
+- Rails: 5.2.1以上
+- SQLite3
+- Bundler (`gem install bundler`)
 
-* System dependencies
+## To Start
 
-* Configuration
+1. インストールする。
 
-* Database creation
+```
+git clone https://github.com/rbndickson/kadai.git
+cd kadai
+```
 
-* Database initialization
+2. Gemを全てインストールする。
 
-* How to run the test suite
+```
+bundle install
+```
 
-* Services (job queues, cache servers, search engines, etc.)
+3. 新しい`master.key`と`credentials.yml.enc`を生成する。
+   MyTweetのOAuthの情報を入力する。
+```
 
-* Deployment instructions
+mv config/credentials.yml.enc ./tmp/
+EDITOR=vim rails credentials:edit
+```
 
-* ...
+```yml
+my_tweet:
+  client_id:
+  client_secret:
+```
+
+4. 動かす。
+
+```
+rake db:migrate
+rake db:seed
+rails server
+```
+
+5. ログインする。
+- `ユーザーID: Alice`
+- `パスワード: passwordalice`
