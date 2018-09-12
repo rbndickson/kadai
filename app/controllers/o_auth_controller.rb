@@ -3,7 +3,7 @@ require 'net/http'
 class OAuthController < ApplicationController
   def callback
     token = exchange_code_for_token(params[:code])
-    
+
     session[:access_token] = token
 
     redirect_to photos_path
@@ -23,7 +23,7 @@ class OAuthController < ApplicationController
                       'grant_type' => 'authorization_code')
     
     http = Net::HTTP.new(uri.host, uri.port)
-    http.use_ssl = (uri.scheme == "https")
+    http.use_ssl = (uri.scheme == 'https')
     res = http.request(req)
 
     body = JSON.parse(res.body)

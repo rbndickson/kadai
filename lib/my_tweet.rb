@@ -35,7 +35,7 @@ module MyTweet
     req['Authorization'] = "Bearer #{token}"
     
     http = Net::HTTP.new(uri.host, uri.port)
-    http.use_ssl = (uri.scheme == "https")
+    http.use_ssl = (uri.scheme == 'https')
 
     res = http.request(req)
   end

@@ -2,7 +2,7 @@
 
 <%= render 'shared/flash_messages' %>
 
-<%= form_for @photo, url: {action: "create"}, html: {class: "form"} do |f| %>
+<%= form_for @photo, url: {action: 'create'}, html: {class: 'form'} do |f| %>
   <div>
     <%= f.label :title ,  "タイトル" %>
     <%= f.text_field :title%>
@@ -13,6 +13,6 @@
   </div>
   <div>
     <%= f.submit "アップロード" %>
-    <%= link_to 'キャンセル', photos_path %>
+    <%= link_to "キャンセル", photos_path %>
   </div>
 <% end %>
