@@ -16,24 +16,14 @@ class PhotosController < ApplicationController
     title = params[:photo][:title]
     image = params[:photo][:image]
 
-    if title.blank? || title.length > 30 || image.nil?
-      if title.blank?
-        flash.now[:title_missing] = "タイトルを入力してください"
-      end
-
-      if image.nil?
-        flash.now[:image_missing] = "画像ファイルを入力してください"
-      end
-
-      if title.length > 30
-        flash.now[:title_long] = "30文字以下のタイトルを入力してください"
-      end
-
-      render :new
-    else
+    if @photo.valid? && !image.nil?
       @photo.save!
 
       redirect_to photos_path
+    else
+      flash.now[:image_missing] = "画像ファイルを入力してください" if image.nil?
+
+      render :new
     end
   end
 
