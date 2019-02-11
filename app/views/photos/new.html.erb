@@ -1,11 +1,6 @@
 <h1>写真アップロード</h1>
-<ul>
-  <% @photo.errors.full_messages.each do |message| %>
-    <li class="error-message">
-      <%= message %>
-    </li>
-  <% end %>
-</ul>
+
+<%= render partial: 'shared/model_validation_messages', locals: {model: @photo} %>
 <%= render 'shared/flash_messages' %>
 
 <%= form_for @photo, url: {action: 'create'}, html: {class: 'form'} do |f| %>

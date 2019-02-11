@@ -1,12 +1,6 @@
 <h1>ログイン</h1>
 
-<ul>
-  <% @session.errors.full_messages.each do |message| %>
-    <li class="error-message">
-      <%= message %>
-    </li>
-  <% end %>
-</ul>
+<%= render partial: 'shared/model_validation_messages', locals: {model: @session} %>
 <%= render 'shared/flash_messages' %>
 
 <%= form_for @session, url: '/login', method: 'POST', html: {class: 'form'} do |f| %>
