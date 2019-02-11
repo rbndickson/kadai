@@ -6,6 +6,11 @@ ja:
       photo:
         title: タイトル
         image: 画像ファイル
+  activemodel:
+    attributes:
+      session:
+        username: ユーザーID
+        password: パスワード
   errors:
     format: "%{attribute}%{message}"
     messages:

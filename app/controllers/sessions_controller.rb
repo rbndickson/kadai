@@ -1,22 +1,15 @@
 class SessionsController < ApplicationController
   def new
+    @session = Session.new
   end
 
   def create
-    if params[:username].blank? || params[:password].blank?
-      if params[:username].blank?
-        flash.now[:missing_username] = "ユーザーIDを入力してください"
-      end
+    @session = Session.new(session_params)
 
-      if params[:password].blank?
-        flash.now[:missing_password] = "パスワードを入力してください"
-      end
+    if @session.valid?
+      user = User.find_by(username: params[:session][:username])
 
-      render :new
-    else
-      user = User.find_by(username: params[:username])
-
-      if user && user.authenticate(params[:password])
+      if user && user.authenticate(params[:session][:password])
         reset_session
         session[:user_id] = user.id
 
@@ -27,6 +20,8 @@ class SessionsController < ApplicationController
 
         render :new
       end
+    else
+      render :new
     end
   end
 
@@ -35,5 +30,11 @@ class SessionsController < ApplicationController
     reset_session
 
     redirect_to root_path
+  end
+
+  private
+
+  def session_params
+    params.require(:session).permit(:username, :password)
   end
 end
