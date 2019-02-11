@@ -17,6 +17,7 @@ class SessionsController < ApplicationController
       user = User.find_by(username: params[:username])
 
       if user && user.authenticate(params[:password])
+        reset_session
         session[:user_id] = user.id
 
         redirect_to photos_path
